@@ -1,0 +1,23 @@
+{
+  "activeSemester": "2018/2",
+  "title": "Campus Online",
+  "description": "Laboratório de Jornalismo da UnB",
+  "links": [
+    {
+      "label": "facebook",
+      "url": "https://www.facebook.com/onlinecampus/"
+    },
+    {
+      "label": "twitter",
+      "url": "https://twitter.com/campusitounb"
+    },
+    {
+      "label": "instagram",
+      "url": "https://www.instagram.com/campusonline/?hl=pt-br"
+    },
+    {
+      "label": "youtube",
+      "url": "https://www.youtube.com/channel/UC6a5zNtTLs-yGnHn9nkUIyw"
+    }
+  ]
+}

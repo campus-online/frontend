@@ -1,0 +1,11 @@
+{
+  "name": "gatsby-remark-null-image-alt",
+  "version": "0.0.0-alpha",
+  "description": "remove null image alt",
+  "main": "index.js",
+  "author": "Leonardo Dino",
+  "private": true,
+  "dependencies": {
+    "unist-util-visit": "^1.4.0"
+  }
+}

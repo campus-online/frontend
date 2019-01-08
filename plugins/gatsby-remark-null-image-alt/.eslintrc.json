@@ -1,0 +1,11 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "../../.eslintrc.json"
+  ],
+  "env": {
+    "browser": false,
+    "es6": true,
+    "node": true
+  }
+}

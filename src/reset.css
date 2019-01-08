@@ -1,0 +1,105 @@
+html,
+body,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	padding: 0;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-smooth: antialised;
+	font-smoothing: antialised;
+	text-rendering: optimizeLegibility;
+	font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'pnum' 1, 'tnum' 0,
+		'onum' 0, 'lnum' 1, 'dlig' 1, 'zero' 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: 100%;
+	font-weight: normal;
+}
+
+ul {
+	list-style: none;
+}
+
+button,
+input,
+select,
+textarea {
+	margin: 0;
+}
+
+html {
+	box-sizing: border-box;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+		Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+img,
+embed,
+iframe,
+object,
+audio,
+video {
+	height: auto;
+	max-width: 100%;
+}
+
+iframe {
+	border: 0;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+td,
+th {
+	padding: 0;
+	text-align: left;
+}
+
+::selection {
+	background-color: var(--selection-color, rgba(125, 125, 125, 1));
+	color: var(--selection-background, white);
+}
+
+img::selection {
+	background-color: rgba(125, 125, 125, 0.22);
+}
+
+html {
+	background: #1a1b1c;
+}
