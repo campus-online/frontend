@@ -1,11 +1,11 @@
 import {graphql} from 'gatsby'
 import React, {Fragment} from 'react'
-import {withLayout} from '../../components/Layout'
-import MetaTags from '../../components/MetaTags'
-import Container from '../../components/Container'
-import Navbar from '../../components/Navbar'
-import Hero from '../../components/Hero'
-import {TagsCounter} from '../../components/Tags'
+import {withLayout} from '../components/Layout'
+import MetaTags from '../components/MetaTags'
+import Container from '../components/Container'
+import Navbar from '../components/Navbar'
+import Hero from '../components/Hero'
+import {TagsCounter} from '../components/Tags'
 
 const TagsPage = ({
 	data: {
@@ -28,7 +28,7 @@ export default withLayout(TagsPage)
 
 export const tagPageQuery = graphql`
 	query TagsQuery {
-		blog: allMarkdownRemark(limit: 1000) {
+		blog: allMarkdownRemark(filter: {fields: {template: {eq: "article"}}}) {
 			tags: group(field: frontmatter___tags) {
 				label: fieldValue
 				totalCount

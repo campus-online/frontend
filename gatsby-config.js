@@ -77,9 +77,9 @@ module.exports = {
 			options: {
 				templateNameByFolder: {
 					authors: 'author',
-					articles: 'blog-post',
+					articles: 'article',
 					editorials: 'editorial',
-					about: 'about-page',
+					about: 'about',
 				},
 			},
 		},
@@ -88,6 +88,23 @@ module.exports = {
 			resolve: 'gatsby-custom-netlify-cms-alias',
 			options: {
 				package: '@leonardodino/netlify-cms',
+			},
+		},
+		{
+			resolve: '@leonardodino/gatsby-plugin-page-creator',
+			options: {
+				path: `${__dirname}/src/indexes`,
+				createPath: (basePath, filePath, createPath) => {
+					const url = createPath(basePath, filePath)
+					const slug = {
+						articles: 'materias',
+						authors: 'reporteres',
+						editorials: 'editorias',
+						tags: 'tags',
+					}[url.replace(/\/([^/]+)\/?$/, '$1')]
+					if(!slug) throw new Error(`unknown index for: "${url}"`)
+          return `/${slug}/`
+        },
 			},
 		},
 		{

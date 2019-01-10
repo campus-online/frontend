@@ -7,7 +7,7 @@ const isEditorialNode = fp.isMatch({
 
 const isPostNode = fp.isMatch({
 	internal: {type: 'MarkdownRemark'},
-	fields: {template: 'blog-post'},
+	fields: {template: 'article'},
 })
 
 const isAuthorNode = fp.isMatch({

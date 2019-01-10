@@ -54,7 +54,7 @@ export const pageQuery = graphql`
 	query IndexQuery {
 		blog: allMarkdownRemark(
 			sort: {order: DESC, fields: [frontmatter___date]}
-			filter: {fields: {template: {eq: "blog-post"}}}
+			filter: {fields: {template: {eq: "article"}}}
 		) {
 			# [TODO]: separate hero
 			# [TODO]: fetch CoverImage for hero, CoverThumbnail for the rest

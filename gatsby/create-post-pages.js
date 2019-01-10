@@ -8,7 +8,7 @@ const {createQuery} = require('./helpers')
 const query = createQuery('CreatePostPages')`
 	allMarkdownRemark(
 		sort: {order: DESC, fields: [frontmatter___date]},
-		filter: {fields: {template: {eq: "blog-post"}}},
+		filter: {fields: {template: {eq: "article"}}},
 	) {
 		posts: edges {
 			post: node { fields { url: slug } }
@@ -33,7 +33,7 @@ module.exports = async ({graphql, actions: {createPage, deletePage}}) => {
 
 		createPage({
 			path: url,
-			component: path.resolve(`src/templates/blog-post/gatsby.js`),
+			component: path.resolve(`src/templates/article/gatsby.js`),
 			context: {
 				url: url,
 				prev: prev && prev.fields.url,

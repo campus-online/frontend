@@ -3,22 +3,22 @@ import React from 'react'
 import {mapProps, compose, withState, lifecycle} from 'recompose'
 import {get, kebabCase, groupBy} from 'lodash/fp'
 import styled from 'styled-components'
-import {colors} from '../../constants'
-import {above} from '../../utils/responsive'
-import flattenBlogPostInfo from '../../fragments/BlogPostInfo'
-import flattenAuthorInfo from '../../fragments/AuthorInfo'
-import flattenEditorialInfo from '../../fragments/EditorialInfo'
-import timesince from '../../utils/timesince'
-import {withLayout} from '../../components/Layout'
-import MetaTags from '../../components/MetaTags'
-import Container from '../../components/Container'
-import {Row, Cell} from '../../components/Grid'
-import {CardRow} from '../../components/CardGrid'
-import Navbar from '../../components/Navbar'
-import FixedTitle from '../../components/FixedTitle'
-import PostCard from '../../components/PostCard'
-import Editorials from '../../components/Editorials'
-import ScrollList from '../../components/ScrollList'
+import {colors} from '../constants'
+import {above} from '../utils/responsive'
+import flattenBlogPostInfo from '../fragments/BlogPostInfo'
+import flattenAuthorInfo from '../fragments/AuthorInfo'
+import flattenEditorialInfo from '../fragments/EditorialInfo'
+import timesince from '../utils/timesince'
+import {withLayout} from '../components/Layout'
+import MetaTags from '../components/MetaTags'
+import Container from '../components/Container'
+import {Row, Cell} from '../components/Grid'
+import {CardRow} from '../components/CardGrid'
+import Navbar from '../components/Navbar'
+import FixedTitle from '../components/FixedTitle'
+import PostCard from '../components/PostCard'
+import Editorials from '../components/Editorials'
+import ScrollList from '../components/ScrollList'
 
 const LayoutGrid = styled(Row)`
 	justify-content: space-between;
@@ -178,7 +178,7 @@ export const pageQuery = graphql`
 		# [TODO]: add infinite-scrolling
 		blog: allMarkdownRemark(
 			sort: {order: DESC, fields: [frontmatter___date]}
-			filter: {fields: {template: {eq: "blog-post"}}}
+			filter: {fields: {template: {eq: "article"}}}
 		) {
 			tags: distinct(field: frontmatter___tags)
 			posts: edges {

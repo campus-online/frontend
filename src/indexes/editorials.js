@@ -1,11 +1,11 @@
 import {graphql} from 'gatsby'
 import React, {Fragment} from 'react'
 import {mapProps, compose} from 'recompose'
-import flattenEditorialInfo from '../../fragments/EditorialInfo'
-import {withLayout} from '../../components/Layout'
-import MetaTags from '../../components/MetaTags'
-import Navbar from '../../components/Navbar'
-import Hero from '../../components/Hero'
+import flattenEditorialInfo from '../fragments/EditorialInfo'
+import {withLayout} from '../components/Layout'
+import MetaTags from '../components/MetaTags'
+import Navbar from '../components/Navbar'
+import Hero from '../components/Hero'
 
 export const Editorials = ({editorials}) =>
 	editorials.map(({title, color, content, excerpt, url}) => (
