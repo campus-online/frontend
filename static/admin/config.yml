@@ -4,6 +4,9 @@ backend:
   name: git-gateway
   branch: master
   squash_merges: true
+  site_domain: campus-content.netlify.com
+  identity_url: https://campus-content.netlify.com/.netlify/identity
+  gateway_url: https://campus-content.netlify.com/.netlify/git/github
 
 publish_mode: editorial_workflow
 
