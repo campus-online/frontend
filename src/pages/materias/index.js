@@ -153,7 +153,7 @@ export const pageQuery = graphql`
 		# [TODO]: filter author on current semester
 		allAuthors: allMarkdownRemark(
 			sort: {order: DESC, fields: [frontmatter___title]}
-			filter: {frontmatter: {template: {eq: "author"}}}
+			filter: {fields: {template: {eq: "author"}}}
 		) {
 			authors: edges {
 				author: node {
@@ -165,7 +165,7 @@ export const pageQuery = graphql`
 		# [TODO]: filter editorial on current semester
 		allEditorials: allMarkdownRemark(
 			sort: {order: DESC, fields: [frontmatter___title]}
-			filter: {frontmatter: {template: {eq: "editorial"}}}
+			filter: {fields: {template: {eq: "editorial"}}}
 		) {
 			editorials: edges {
 				editorial: node {
@@ -178,7 +178,7 @@ export const pageQuery = graphql`
 		# [TODO]: add infinite-scrolling
 		blog: allMarkdownRemark(
 			sort: {order: DESC, fields: [frontmatter___date]}
-			filter: {frontmatter: {template: {eq: "blog-post"}}}
+			filter: {fields: {template: {eq: "blog-post"}}}
 		) {
 			tags: distinct(field: frontmatter___tags)
 			posts: edges {

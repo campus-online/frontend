@@ -4,7 +4,7 @@ const path = require('path')
 const {createQuery} = require('./helpers')
 
 const query = createQuery('CreateTagPages')`
-	allMarkdownRemark(filter: {frontmatter: {template: {eq: "blog-post"}}}) {
+	allMarkdownRemark(filter: {fields: {template: {eq: "blog-post"}}}) {
 		posts: edges {
 			post: node {
 				frontmatter { tags }

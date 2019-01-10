@@ -57,7 +57,7 @@ export const editorialsQuery = graphql`
 	query EditorialsQuery {
 		editorialList: allMarkdownRemark(
 			sort: {order: ASC, fields: [frontmatter___title]}
-			filter: {frontmatter: {template: {eq: "editorial"}}}
+			filter: {fields: {template: {eq: "editorial"}}}
 		) {
 			editorials: edges {
 				editorial: node {

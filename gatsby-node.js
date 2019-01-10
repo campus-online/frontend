@@ -1,12 +1,12 @@
 /* eslint-env node, es6 */
 const fp = require('lodash/fp')
 const {createFilePath} = require('gatsby-source-filesystem')
-const remarkImagesToRelative = require('./gatsby/remarkImagesToRelative.js')
 
 const trans = {
 	authors: 'reporteres',
 	articles: 'materias',
 	editorials: 'editorias',
+	about: 'sobre',
 }
 
 const createUrl = fp.flow(
@@ -31,7 +31,6 @@ exports.createPages = async (...args) => {
 }
 
 exports.onCreateNode = ({node, actions: {createNodeField}, getNode}) => {
-	remarkImagesToRelative(node)
 	if (node.internal.type !== 'MarkdownRemark') return
 	createNodeField({name: 'slug', node, value: createUrl({node, getNode})})
 }

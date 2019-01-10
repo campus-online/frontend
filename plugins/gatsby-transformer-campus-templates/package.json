@@ -1,0 +1,8 @@
+{
+  "name": "gatsby-transformer-campus-templates",
+  "version": "0.0.0-alpha",
+  "description": "Gatsby Transformer for setting template field",
+  "main": "index.js",
+  "author": "Leonardo Dino",
+  "private": true
+}

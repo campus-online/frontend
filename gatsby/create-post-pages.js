@@ -8,7 +8,7 @@ const {createQuery} = require('./helpers')
 const query = createQuery('CreatePostPages')`
 	allMarkdownRemark(
 		sort: {order: DESC, fields: [frontmatter___date]},
-		filter: {frontmatter: {template: {eq: "blog-post"}}},
+		filter: {fields: {template: {eq: "blog-post"}}},
 	) {
 		posts: edges {
 			post: node { fields { url: slug } }

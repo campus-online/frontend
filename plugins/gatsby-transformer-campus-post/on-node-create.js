@@ -2,17 +2,17 @@ const fp = require('lodash/fp')
 
 const isEditorialNode = fp.isMatch({
 	internal: {type: 'MarkdownRemark'},
-	frontmatter: {template: 'editorial'},
+	fields: {template: 'editorial'},
 })
 
 const isPostNode = fp.isMatch({
 	internal: {type: 'MarkdownRemark'},
-	frontmatter: {template: 'blog-post'},
+	fields: {template: 'blog-post'},
 })
 
 const isAuthorNode = fp.isMatch({
 	internal: {type: 'MarkdownRemark'},
-	frontmatter: {template: 'author'},
+	fields: {template: 'author'},
 })
 
 const basename = fp.replace(/.+\/(.+)\..+$/, '$1')

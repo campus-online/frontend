@@ -72,6 +72,17 @@ module.exports = {
 		},
 		'gatsby-plugin-sharp',
 		'gatsby-transformer-sharp',
+		{
+			resolve: 'gatsby-transformer-campus-templates',
+			options: {
+				templateNameByFolder: {
+					authors: 'author',
+					articles: 'blog-post',
+					editorials: 'editorial',
+					about: 'about-page',
+				},
+			},
+		},
 		'gatsby-transformer-campus-post',
 		{
 			resolve: 'gatsby-custom-netlify-cms-alias',

@@ -9,8 +9,7 @@ const query = createQuery('CreateDefaultPages')`
 	allMarkdownRemark {
 		pages: edges {
 			node {
-				fields { url: slug }
-				frontmatter { template }
+				fields { url: slug, template }
 			}
 		}
 	}
@@ -21,7 +20,7 @@ module.exports = async ({graphql, actions: {createPage}}) => {
 		allMarkdownRemark: {pages},
 	} = await query(graphql)
 
-	pages.forEach(({node: {fields: {url}, frontmatter: {template}}}) => {
+	pages.forEach(({node: {fields: {url, template}}}) => {
 		createPage({
 			path: url,
 			context: {url},

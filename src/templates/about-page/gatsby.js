@@ -46,7 +46,10 @@ export const aboutPageQuery = graphql`
 		}
 		authorList: allMarkdownRemark(
 			sort: {order: ASC, fields: [frontmatter___title]}
-			filter: {frontmatter: {template: {eq: "author"}, semester:{eq: "2018/2"}}}
+			filter: {
+				fields: {template: {eq: "author"}},
+				frontmatter: {semester:{eq: "2018/2"}},
+			}
 		) {
 			authors: edges {
 				author: node {
