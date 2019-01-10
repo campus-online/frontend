@@ -1,5 +1,4 @@
 import React, {Fragment} from 'react'
-import {get} from 'lodash/fp'
 import {withLayout} from '../../components/Layout'
 import MetaTags from '../../components/MetaTags'
 import Container from '../../components/Container'
@@ -11,7 +10,7 @@ const getAvatarImageSrc = avatar => {
 	if(typeof avatar === 'string') return avatar
 	if(typeof avatar.image === 'string') return avatar.image
 	if(typeof avatar.src === 'string') return avatar.src
-	return get('childImageSharp.large.src')(avatar) || null
+	return null
 }
 
 const Author = ({name, semester, avatar, content, excerpt, posts}) => (

@@ -1,6 +1,5 @@
 import React from 'react'
 import styled, {css} from 'styled-components'
-import GatsbyImage from 'gatsby-image'
 import {colors} from '../../constants'
 import {above} from '../../utils/responsive'
 
@@ -56,8 +55,7 @@ const Wrapper = styled.div`
 	${p => sizeOverride[p.size] || ''}
 `
 
-const UnstyledImage = ({src, fixed, ...props} = {}) => {
-	if (fixed) return <GatsbyImage {...props} fixed={fixed} />
+const UnstyledImage = ({src, ...props} = {}) => {
 	if (src) return <img {...props} src={src} />
 	return null
 }
@@ -72,18 +70,14 @@ const Image = styled(UnstyledImage)`
 	flex: 1;
 `
 
-const getProps = ({avatar, size = 'medium', dark} = {}) => {
+const getProps = ({avatar} = {}) => {
 	if (!avatar) return null
 	if (typeof avatar === 'string') return {src: avatar}
-	if (avatar.childImageSharp) {
-		const fixed = avatar.childImageSharp[size]
-		if (fixed) return {fixed, backgroundColor: getBackgroundColor({dark})}
-	}
 	return null
 }
 
 const Avatar = ({avatar, dark, size, name = null, ...props}) => {
-	const avatarProps = getProps({avatar, size, dark})
+	const avatarProps = getProps({avatar, size})
 	return (
 		<Wrapper dark={dark} size={size} {...props}>
 			{avatarProps ? <Image {...avatarProps} /> : name && initials(name)}

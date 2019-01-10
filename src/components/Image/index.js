@@ -1,13 +1,9 @@
 import React from 'react'
-import GatsbyImage from 'gatsby-image'
 
 const NullComponent = () => null
 
 const parseSource = src => {
 	if(typeof src === 'string') return [{src}, Img]
-	if(src && src.childImageSharp) return [src.childImageSharp, GatsbyImage]
-	if(src && src.fluid && src.fluid.src) return [{fluid: src.fluid}, GatsbyImage]
-	if(src && src.fixed && src.fixed.src) return [{fixed: src.fixed}, GatsbyImage]
 	return [null, NullComponent]
 }
 

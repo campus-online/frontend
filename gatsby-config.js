@@ -58,20 +58,11 @@ module.exports = {
 							captionClassName: 'md-figure-caption',
 						},
 					},
-					{
-						resolve: 'gatsby-remark-images',
-						options: {
-							maxWidth: 760,
-							showCaptions: true,
-						},
-					},
 					'gatsby-remark-external-links',
 					'gatsby-remark-responsive-iframe',
 				],
 			},
 		},
-		'gatsby-plugin-sharp',
-		'gatsby-transformer-sharp',
 		{
 			resolve: 'gatsby-transformer-campus-templates',
 			options: {
