@@ -42,4 +42,6 @@ const AuthorControl = forwardRef((props, ref) => (
 	<Relation.control ref={ref} {...props} {...methods} />
 ))
 
+AuthorControl.displayName = 'AuthorControl'
+
 export default AuthorControl

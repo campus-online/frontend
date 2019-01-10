@@ -42,4 +42,6 @@ const EditorialControl = forwardRef((props, ref) => (
 	<Relation.control ref={ref} {...props} {...methods} />
 ))
 
+EditorialControl.displayName = 'EditorialControl'
+
 export default EditorialControl

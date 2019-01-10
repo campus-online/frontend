@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import GatsbyImage from 'gatsby-image'
 import {above} from '../../utils/responsive'
 import Image from '../Image'
 import {maxHeight} from './constants'
