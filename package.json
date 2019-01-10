@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@leonardodino/gatsby-plugin-page-creator": "^0.0.2",
-    "@leonardodino/netlify-cms": "2.2.1-alpha.1",
+    "@leonardodino/netlify-cms": "2.3.2-alpha.1",
     "@reach/router": "^1.1.1",
     "deep-map": "^1.5.0",
     "gatsby": "^2.0.90",
