@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import ProgressiveImage from 'react-progressive-image'
+import { useIntersectionObserver } from 'the-platform'
 
 const baseStyle = {
 	position: 'absolute',
@@ -21,18 +22,28 @@ const getPlaceholderSrc = ({src}) => {
 	return (src + '/').replace(/\/+$/, placeholderSettings)
 }
 
-const Progressive = ({src, style = {}}) => (
-	<ProgressiveImage
-		src={src}
-		placeholder={getPlaceholderSrc}
-	>
-		{(src, loading) => (
-			<img
-				src={src}
-				style={{...baseStyle, ...style, filter: loading ? 'blur(4vw)' : 'none'}}
-			/>
-		)}
-	</ProgressiveImage>
-)
+
+const Progressive = ({src, style = {}}) => {
+	const targetRef = useRef(null);
+	const [hasIntersected, setIntersected] = useState(false)
+	const isIntersecting = useIntersectionObserver(targetRef, document.body)
+
+	useEffect(() => (
+		isIntersecting && !hasIntersected && setIntersected(true)
+	), [isIntersecting])
+
+
+	if(!hasIntersected) return (
+		<img ref={targetRef} src={getPlaceholderSrc({src})} style={{...baseStyle, ...style, filter: 'blur(4vw)'}}/>
+	)
+
+	return (
+		<ProgressiveImage ref={targetRef} src={src} placeholder={getPlaceholderSrc({src})}>
+			{(src, loading) => (
+				<img src={src} style={{...baseStyle, ...style, filter: loading ? 'blur(4vw)' : 'none'}}/>
+			)}
+		</ProgressiveImage>
+	)
+}
 
 export default Progressive
