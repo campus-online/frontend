@@ -43,6 +43,7 @@
     "react": "^16.8.0-alpha.1",
     "react-dom": "^16.8.0-alpha.1",
     "react-helmet": "^5.2.0",
+    "react-progressive-image": "^0.6.0",
     "react-window-size": "^1.2.0",
     "recompose": "^0.30.0",
     "styled-components": "^3.4.8",

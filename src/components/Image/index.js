@@ -1,4 +1,5 @@
 import React from 'react'
+import Progressive from './Progressive'
 
 const NullComponent = () => null
 
@@ -7,33 +8,20 @@ const parseSource = src => {
 	return [null, NullComponent]
 }
 
-const Img = React.forwardRef(({fixed, fluid, className, style, ...props}, ref) => {
+const Img = ({fixed, fluid, className, style, ...props}, ref) => {
 	const divStyle = (
-		fluid && {position: 'relative', overflow: 'hidden', ...style} ||
-		fixed && {position: 'relative', overflow: 'hidden', display: 'inline-block', ...style}
+		fluid && {position: 'relative', ...style} ||
+		fixed && {position: 'relative', display: 'inline-block', ...style}
 	) || {}
 	const divClassName = `${className ? className : ``} gatsby-image-wrapper`
 	return (
-		<div className={divClassName} style={divStyle}>
+		<div className={divClassName} style={{overflow: 'hidden', ...divStyle}}>
 			<picture>
-				<img
-					{...props}
-					ref={ref}
-					style={{
-						position: 'absolute',
-						top: 0,
-						left: 0,
-						width: '100%',
-						height: '100%',
-						objectFit: 'cover',
-						objectPosition: 'center',
-						...style,
-					}}
-				/>
+				<Progressive {...props} ref={ref} style={style}/>
 			</picture>
 		</div>
 	)
-})
+}
 
 const Image = ({src, ...props} = {}) => {
 	const [source, Component] = parseSource(src)
