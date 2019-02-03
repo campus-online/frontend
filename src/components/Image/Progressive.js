@@ -39,9 +39,10 @@ const getSrcSet = (src, sizes) => {
 	return generateSrcSet(clean, sizes)
 }
 
-const generateSizes = sizes => (
-	sizes.slice(0,-1).map(size => `(max-width: ${size}px) ${size-40}px,`).join(', ')+`${sizes.slice(-1)[0]}px`
-)
+const generateSizes = sizes => {
+	const withRetina = sizes.map(x => [x, x*2]).flat()
+	return withRetina.slice(0,-1).map(size => `(max-width: ${size}px) ${size-40}px, `).join('')+`${withRetina.slice(-1)[0]}px`
+}
 
 const Progressive = ({src, style = {}}) => {
 	const targetRef = useRef(null);
