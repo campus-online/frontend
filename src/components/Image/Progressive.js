@@ -2,6 +2,8 @@ import React, { useRef, useState, useEffect } from 'react'
 import ProgressiveImage from 'react-progressive-image'
 import { useIntersectionObserver } from 'the-platform'
 
+const WIDTHS = [320, 480, 800, 1024, 1280, 1440, 1920]
+
 const baseStyle = {
 	position: 'absolute',
 	top: 0,
@@ -22,35 +24,29 @@ const getPlaceholder = ({src}) => {
 	return (src + '/').replace(/\/+$/, placeholderSettings)
 }
 
-const getSrcSet = ({src}) => {
-	if(!src || typeof src !== 'string') return 'none'
-	if(!src.includes('ucarecdn.com')) return src
-	const clean = (src + '/').replace(/\/+$/, '')
-	return `
-		${clean}/-/resize/320x/-/quality/lightest/ 320w,
-		${clean}/-/resize/640x/-/quality/lightest/ 320w 2x,
-		${clean}/-/resize/480x/-/quality/lightest/ 480w,
-		${clean}/-/resize/960x/-/quality/lightest/ 480w 2x,
-		${clean}/-/resize/800x/-/quality/lightest/ 800w,
-		${clean}/-/resize/1600x/-/quality/lightest/ 800w 2x
-		${clean}/-/resize/1024x/-/quality/lightest/ 1024w,
-		${clean}/-/resize/2048x/-/quality/lightest/ 1024w 2x
+const generateSrcSet = (base, sizes) => (
+	sizes.map(size => (`
+		${base}/-/resize/${size}x/-/quality/lighter/ ${size}w,
+		${base}/-/resize/${size*2}x/-/quality/lightest/ ${size*2}w,
 	`
+	)).join('')
+)
+
+const getSrcSet = (src, sizes) => {
+	if(!src || typeof src !== 'string') return 'none'
+	if(!src.includes('ucarecdn.com')) return 'none'
+	const clean = (src + '/').replace(/\/+$/, '')
+	return generateSrcSet(clean, sizes)
 }
 
-const sizes = `
-	(max-width: 320px) 280px,
-	(max-width: 480px) 440px,
-	(max-width: 480px) 440px,
-	(max-width: 800px) 760px,
-	1024px
-`
-
+const generateSizes = sizes => (
+	sizes.slice(0,-1).map(size => `(max-width: ${size}px) ${size-40}px,`).join(', ')+`${sizes.slice(-1)[0]}px`
+)
 
 const Progressive = ({src, style = {}}) => {
 	const targetRef = useRef(null);
 	const [hasIntersected, setIntersected] = useState(false)
-	const isIntersecting = useIntersectionObserver(targetRef, typeof document === 'object' && document.body)
+	const isIntersecting = useIntersectionObserver(targetRef, typeof document === 'object' ? document.body : targetRef)
 
 	useEffect(() => (
 		isIntersecting && !hasIntersected && setIntersected(true)
@@ -66,8 +62,8 @@ const Progressive = ({src, style = {}}) => {
 			{(src, loading) => (
 				<img
 					src={src}
-					srcSet={!loading && getSrcSet({src})}
-					sizes={!loading && sizes}
+					srcSet={!loading ? getSrcSet(src, WIDTHS) : 'none'}
+					sizes={!loading ? generateSizes(WIDTHS) : 'none'}
 					style={{...baseStyle, ...style, filter: loading ? 'blur(4vw)' : 'none'}}
 				/>
 			)}
