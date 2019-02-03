@@ -8,7 +8,7 @@ const parseSource = src => {
 	return [null, NullComponent]
 }
 
-const Img = ({fixed, fluid, className, style, ...props}, ref) => {
+const Img = ({fixed, fluid, className, style, ...props}) => {
 	const divStyle = (
 		fluid && {position: 'relative', ...style} ||
 		fixed && {position: 'relative', display: 'inline-block', ...style}
@@ -17,7 +17,7 @@ const Img = ({fixed, fluid, className, style, ...props}, ref) => {
 	return (
 		<div className={divClassName} style={{overflow: 'hidden', ...divStyle}}>
 			<picture>
-				<Progressive {...props} ref={ref} style={style}/>
+				<Progressive {...props} style={style}/>
 			</picture>
 		</div>
 	)
