@@ -48,9 +48,7 @@ const Progressive = ({src, style = {}}) => {
 	const [hasIntersected, setIntersected] = useState(false)
 	const isIntersecting = useIntersectionObserver(targetRef, typeof document === 'object' ? document.body : targetRef)
 
-	useEffect(() => (
-		isIntersecting && !hasIntersected && setIntersected(true)
-	), [isIntersecting])
+	useEffect(() => {isIntersecting && !hasIntersected && setIntersected(true)}, [isIntersecting])
 
 
 	if(!hasIntersected) return (
