@@ -26,7 +26,7 @@ const getPlaceholderSrc = ({src}) => {
 const Progressive = ({src, style = {}}) => {
 	const targetRef = useRef(null);
 	const [hasIntersected, setIntersected] = useState(false)
-	const isIntersecting = useIntersectionObserver(targetRef, document.body)
+	const isIntersecting = useIntersectionObserver(targetRef, typeof document === 'object' && document.body)
 
 	useEffect(() => (
 		isIntersecting && !hasIntersected && setIntersected(true)
