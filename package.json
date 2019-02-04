@@ -1,7 +1,7 @@
 {
-  "name": "campus-online-frontend",
-  "description": "FAC-UNB campus online frontend web app",
-  "homepage": "https://campus.kunst.cloud/",
+  "name": "@campus-online/frontend",
+  "description": "unb campus-online frontend",
+  "homepage": "https://campus.fac.unb.br/",
   "version": "0.0.0-alpha",
   "private": true,
   "scripts": {
