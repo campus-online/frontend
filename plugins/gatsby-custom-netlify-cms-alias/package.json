@@ -1,8 +1,0 @@
-{
-  "name": "gatsby-custom-netlify-cms-alias",
-  "version": "0.0.0-alpha",
-  "description": "Gatsby Plugin for custom netlify-cms package",
-  "main": "index.js",
-  "author": "Leonardo Dino",
-  "private": true
-}

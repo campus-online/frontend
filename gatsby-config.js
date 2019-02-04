@@ -76,12 +76,6 @@ module.exports = {
 		},
 		'gatsby-transformer-campus-post',
 		{
-			resolve: 'gatsby-custom-netlify-cms-alias',
-			options: {
-				package: '@leonardodino/netlify-cms',
-			},
-		},
-		{
 			resolve: '@leonardodino/gatsby-plugin-page-creator',
 			options: {
 				path: `${__dirname}/src/indexes`,
@@ -96,12 +90,6 @@ module.exports = {
 					if(!slug) throw new Error(`unknown index for: "${url}"`)
           return `/${slug}/`
         },
-			},
-		},
-		{
-			resolve: 'gatsby-plugin-netlify-cms',
-			options: {
-				modulePath: `${__dirname}/src/admin`,
 			},
 		},
 		'gatsby-plugin-netlify', // make sure to keep it last in the array
