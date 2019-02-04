@@ -73,7 +73,7 @@ const Sup = styled.div`
 	opacity: 0.66;
 `
 
-const Sub = Sup.extend`
+const Sub = styled(Sup)`
 	margin-top: 0.5rem;
 `
 
