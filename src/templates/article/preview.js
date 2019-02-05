@@ -2,22 +2,18 @@ import PropTypes from 'prop-types'
 import {mapProps} from 'recompose'
 import BlogPost from '.'
 
-const expand = (data, prop = 'title') =>
-	((data || {}).slug || null) && {
-		url: data.slug,
-		[prop]: data.title,
-	}
+const expand = (prop = 'title') => slug => ({url: `#${slug}`, [prop]: slug})
 
 const enhance = mapProps(({entry, widgetFor}) => {
 	// eslint-disable-next-line no-unused-vars
-	const {body, cover, ...data} = entry.getIn(['data']).toJS()
+	const {body, ...data} = entry.getIn(['data']).toJS()
 	return {
 		...data,
+		isPreview: true,
 		content: widgetFor('body'),
 		siteTitle: 'CMS',
-		cover: (cover || null) && {image: {sizes: {src: cover}}},
-		author: expand(data.author, 'name'),
-		editorial: expand(data.editorial),
+		authors: (data.authors || []).map(expand('name')),
+		editorial: expand('title')(data.editorial),
 	}
 })
 

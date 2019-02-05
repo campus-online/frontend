@@ -3,7 +3,7 @@ import Layout from '.'
 
 /* eslint-disable react/display-name */
 const withLayout = Component => props => (
-	<Layout>
+	<Layout isPreview={props.isPreview}>
 		<Component {...props} />
 	</Layout>
 )

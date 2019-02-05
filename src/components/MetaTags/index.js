@@ -23,7 +23,6 @@ const MetaTags = ({
 	const latlng = '-15.760837, -47.8702936'
 	const locale = 'pt_BR'
 	const truncatedDescription = truncate(description, 120)
-	const imageURL = joinURL(image, homepage)
 	return (
 		<Helmet>
 			<title>{composedTitle}</title>
@@ -36,7 +35,7 @@ const MetaTags = ({
 			<meta property="og:url" content={joinURL(pathname, homepage)} />
 			<meta property="og:type" content="website" />
 			<meta property="og:title" content={composedTitle} />
-			<meta property="og:image" content={imageURL} />
+			{image && <meta property="og:image" content={image} />}
 			<meta property="og:description" content={truncatedDescription} />
 			<meta property="og:site_name" content={siteTitle} />
 			<meta property="og:locale" content={locale} />
@@ -47,7 +46,7 @@ const MetaTags = ({
 			<meta name="twitter:url" content={joinURL(pathname, homepage)} />
 			<meta name="twitter:title" content={composedTitle} />
 			<meta name="twitter:description" content={truncatedDescription} />
-			<meta name="twitter:image" content={imageURL} />
+			{image && <meta name="twitter:image" content={image} />}
 		</Helmet>
 	)
 }

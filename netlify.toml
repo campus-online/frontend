@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build"
+  publish = "public"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"

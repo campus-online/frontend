@@ -8,6 +8,7 @@
     "clean": "rm -rf public .cache",
     "dev": "gatsby develop --port \"${PORT:-5000}\" --open -H 0.0.0.0",
     "build": "gatsby build",
+    "postbuild": "cp src/*.css public",
     "lint": "eslint './*.js' 'src' 'plugins' 'gatsby'",
     "precommit": "lint-staged"
   },

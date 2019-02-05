@@ -43,6 +43,7 @@ const BlogPost = ({
 	authors,
 	prev,
 	next,
+	isPreview,
 }) => {
 	return (
 		<Fragment>
@@ -51,7 +52,7 @@ const BlogPost = ({
 				description={headline ? headline : excerpt}
 				image={getCoverImageSrc(cover)}
 			/>
-			<Navbar style={{position: 'fixed', top: 0, zIndex: 2}} />
+			{!isPreview && <Navbar style={{position: 'fixed', top: 0, zIndex: 2}} />}
 			<ArticleHero
 				headline={headline}
 				title={title}

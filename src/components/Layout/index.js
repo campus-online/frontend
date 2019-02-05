@@ -21,7 +21,7 @@ const Inner = styled.div`
 	width: 100%;
 `
 
-const Layout = ({children}) => (
+const Layout = ({children, isPreview}) => (
 	<MenuProvider>
 		<Helmet>
 			<link rel="icon" sizes="16x16" href="/assets/images/favicon-16.png" />
@@ -31,7 +31,7 @@ const Layout = ({children}) => (
 		</Helmet>
 		<Wrapper>
 			<Inner>{typeof children === 'function' ? children() : children}</Inner>
-			<Footer style={{flex: 'none'}} />
+			{!isPreview && <Footer style={{flex: 'none'}} />}
 		</Wrapper>
 	</MenuProvider>
 )
