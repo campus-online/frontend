@@ -48,7 +48,7 @@ export const aboutPageQuery = graphql`
 			sort: {order: ASC, fields: [frontmatter___title]}
 			filter: {
 				fields: {template: {eq: "author"}},
-				frontmatter: {semester:{eq: "2018/2"}},
+				frontmatter: {semester:{eq: "2019/1"}},
 			}
 		) {
 			authors: edges {
