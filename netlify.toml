@@ -11,3 +11,15 @@
   for = "/assets/fonts/*"
   [headers.values]
     Access-Control-Allow-Origin = "*"
+
+[[redirects]]
+  from = "/admin"
+  to = "https://campus-content.netlify.com/admin"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/admin/*"
+  to = "https://campus-content.netlify.com/admin/:splat"
+  status = 302
+  force = true
