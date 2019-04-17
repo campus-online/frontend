@@ -143,9 +143,9 @@ class CanvasComponent extends React.Component {
 	}
 	render() {
 		return (
-			<Wrapper innerRef={this.wrapper} {...this.props}>
-				<Container innerRef={this.container} />
-				<HtmlCanvas innerRef={this.canvas} {...this.props} />
+			<Wrapper ref={this.wrapper} {...this.props}>
+				<Container ref={this.container} />
+				<HtmlCanvas ref={this.canvas} {...this.props} />
 			</Wrapper>
 		)
 	}

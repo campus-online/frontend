@@ -36,7 +36,7 @@ module.exports = {
 				branch: 'master',
 				// articles needs to be processed after others,
 				// keep it last in the array
-				patterns: ['docs/authors/*.md','docs/editorials/*.md', 'docs/articles/*.md'],
+				patterns: ['docs/authors/*.md', 'docs/editorials/*.md', 'docs/about/*.md', 'docs/articles/*.md'],
 			},
 		},
 		{
