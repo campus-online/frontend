@@ -77,7 +77,7 @@ const PageComponent = ({posts, tags, authors, editorials, currentDate}) => (
 		<Navbar style={{position: 'fixed', top: 0, zIndex: 3}} dark={true} />
 		<main style={{padding: '8rem 0'}}>
 			<Container>
-				<section style={{marginBottom: '6rem'}}>
+				<section style={{marginBottom: '4rem'}}>
 					<Editorials editorials={editorials} style={{marginBottom: '2rem'}} />
 					<ScrollList
 						title="Repórteres"
