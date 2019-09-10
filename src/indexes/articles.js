@@ -15,7 +15,7 @@ import Container from '../components/Container'
 import {Row, Cell} from '../components/Grid'
 import {CardRow} from '../components/CardGrid'
 import Navbar from '../components/Navbar'
-import FixedTitle from '../components/FixedTitle'
+import TitleBar from '../components/TitleBar'
 import PostCard from '../components/PostCard'
 import Editorials from '../components/Editorials'
 import ScrollList from '../components/ScrollList'
@@ -87,7 +87,7 @@ const PageComponent = ({posts, tags, authors, editorials, currentDate}) => (
 					<ScrollList title="Tags" url="/tags" list={tags.map(enhanceTag)} />
 				</section>
 				<section>
-					<FixedTitle dark title="Todas as publicações" />
+					<TitleBar dark title="Todas as publicações" />
 						{Object.entries(groupByDate(currentDate)(posts)).map(([distance, posts]) => (
 							<div style={{position: 'relative'}} key={distance}>
 								<DateMarker>

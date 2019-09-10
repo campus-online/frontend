@@ -9,7 +9,7 @@ import Container from '../components/Container'
 import {Row, Cell} from '../components/Grid'
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
-import FixedTitle from '../components/FixedTitle'
+import TitleBar from '../components/TitleBar'
 import AuthorCard from '../components/AuthorCard'
 
 const getAllSemesters = flow([
@@ -27,7 +27,7 @@ const AuthorsPage = ({authors}) => (
 			<section style={{padding: '6rem 0 4rem'}}>
 				{getAllSemesters(authors).map((semester, index) => (
 					<Fragment key={semester}>
-						<FixedTitle
+						<TitleBar
 							title={!index ? `Semestre atual (${semester})` : semester}
 							label={!index && 'Expediente'}
 							url={!index && '/reporteres'}
