@@ -9,13 +9,8 @@ const Wrapper = styled.div`
 	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: baseline;
-	position: relative;
-	position: sticky;
-	top: 3.5rem;
-	z-index: 2;
 	background: ${colors.base03};
 	color: ${colors.base88};
-	box-shadow: -6rem 0 0 ${colors.base03}, 6rem 0 0 ${colors.base03};
 	${p =>
 		p.dark &&
 		`
@@ -23,7 +18,6 @@ const Wrapper = styled.div`
 		color: ${colors.white};
 		box-shadow: -6rem 0 0 ${colors.base}, 6rem 0 0 ${colors.base};
 	`} ${above.md`
-		top: 4rem;
 		margin-bottom: 1rem;
 	`};
 `
@@ -57,11 +51,11 @@ const Anchor = styled(Link)`
 	`};
 `
 
-const FixedTitle = ({title, label, url, dark, style}) => (
+const TitleBar = ({title, label, url, dark, style}) => (
 	<Wrapper dark={dark} style={style}>
 		<Title>{title}</Title>
 		{url && <Anchor to={url}>{label}</Anchor>}
 	</Wrapper>
 )
 
-export default FixedTitle
+export default TitleBar
