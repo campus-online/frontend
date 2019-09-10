@@ -55,6 +55,7 @@ export const pageQuery = graphql`
 		blog: allMarkdownRemark(
 			sort: {order: DESC, fields: [frontmatter___date]}
 			filter: {fields: {template: {eq: "article"}}}
+			limit: 16
 		) {
 			# [TODO]: separate hero
 			# [TODO]: fetch CoverImage for hero, CoverThumbnail for the rest
