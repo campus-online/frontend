@@ -17,11 +17,11 @@ const Wrapper = styled.article`
 	position: relative;
 	overflow: hidden;
 	z-index: 3;
-	margin-bottom: 6rem;
+	margin-bottom: 2rem;
 	min-height: 24rem;
 	${above.md`
 		min-height: 32rem;
-		margin-bottom: 8rem;
+		margin-bottom: 4rem;
 	`};
 `
 

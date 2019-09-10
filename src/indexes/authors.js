@@ -24,7 +24,7 @@ const AuthorsPage = ({authors}) => (
 		<Hero title="Repórteres" sub={`${authors.length} repórteres no total`} />
 		<Container>
 			<MetaTags title="Repórteres" />
-			<section style={{padding: '6rem 0 4rem'}}>
+			<section style={{padding: '6rem 0 2rem'}}>
 				{getAllSemesters(authors).map((semester, index) => (
 					<Fragment key={semester}>
 						<TitleBar
