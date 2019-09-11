@@ -26,68 +26,26 @@ const StyledCardCell = styled(CardCell)`
 `
 
 export const Wrapper = styled.article.attrs({className: 'PostCard'})`
-	transition: padding ${timing}, margin ${timing}, box-shadow ${timing};
-	z-index: 0;
-	width: 100%;
 	flex: 1;
 	position: relative;
 	margin-bottom: 0.5rem;
-	${above.md`
-		margin-bottom: 0;
-		&:hover, &:focus, &:active{
-			box-shadow: 0 37.125px 70px -12.125px rgba(0,0,0,0.3);
-			z-index: 1;
-		}
-	`};
-`
-
-const Padding = styled.div`
-	padding: 6px 6px;
-	min-height: 100%;
-	display: flex;
-	flex-direction: column;
-`
-
-const PlainDiv = ({className, children, style}) => (
-	<div className={className} style={style}>
-		{children}
-	</div>
-)
-
-const Inset = styled(PlainDiv)`
-	background: ${p =>
-		!p.dark ? 'white' : p.alt ? 'rgba(255,255,255,0.03)' : colors.base};
+	background: ${p => !p.dark ? 'white' : p.alt ? 'rgba(255,255,255,0.03)' : colors.base};
 	color: ${p => (p.dark ? 'white' : colors.base)};
-	border-bottom: 1px solid ${p => (p.dark ? colors.base88 : colors.base11)};
-	position: relative;
-	overflow: hidden;
-	transition: padding ${timing}, margin ${timing}, box-shadow ${timing};
-	flex: 1;
-	${above.md`
-		border-bottom: 0;
-		${Wrapper}:hover &, ${Wrapper}:focus &, ${Wrapper}:active &{
-			padding: 6px;
-			margin: -6px;
-		}
-	`} ${above.xg`
-		display: flex;
-	`};
-`
-
-const PostContent = styled.div`
-	width: 100%;
-	height: 100%;
-	position: relative;
+	margin: 0.375rem;
 	${above.md`
 		display: flex;
 		align-items: stretch;
 		min-height: ${p => (p.compact ? 'auto' : minHeight)};
 		flex-direction: ${p =>
 			p.size ? (p.reverse ? 'row' : 'row-reverse') : 'column'};
+		};
 	`};
 	${above.xg`
 		flex-direction: ${p => (p.reverse ? 'row' : 'row-reverse')};
 	`};
+	&:hover, &:focus, &:active{
+		z-index: 1;
+	}
 `
 
 const ImageWrapper = styled.div`
@@ -95,7 +53,7 @@ const ImageWrapper = styled.div`
 	align-items: center;
 	justify-content: center;
 	object-fit: cover;
-	margin: -6px;
+	overflow: hidden;
 	position: relative;
 	flex: 0;
 	min-height: 14rem;
@@ -158,12 +116,6 @@ const Anchor = styled(Link)`
 	left: 0;
 	right: 0;
 	bottom: 0;
-	outline-offset: -6px;
-	transition: outline ${timing};
-	${Wrapper}:hover &,
-	${Wrapper}:active & {
-		outline-offset: 0;
-	}
 `
 
 const Title = styled.div`
@@ -187,13 +139,13 @@ const Editorial = styled(({url, color, title, style, ...props}) => (
 ))`
 	text-decoration: none;
 	position: relative;
-	z-index: 3;
+	z-index: 1;
 	color: currentColor;
 	display: block;
 `
 
 const Author = styled(AuthorCard)`
-	z-index: 3;
+	z-index: 1;
 	padding-top: 0.25rem;
 	margin-top: auto;
 	${above.md &&
@@ -246,35 +198,35 @@ const PostCard = ({
 		md={size ? 12 : 6}
 		mini={dynamic && !(cover && cover)}
 	>
-		<Wrapper>
-			<Padding>
-				<Inset dark={dark} alt={alt}>
-					<PostContent reverse={reverse} size={size} compact={compact}>
-						{cover && (
-							<ImageWrapper size={size} compact={compact}>
-								<Image image={cover} dark={dark} />
-								{tags && (
-									<TagsWrapper>
-										{tags.map((tag, index) => (
-											<Tag key={tag} tag={tag} index={index} />
-										))}
-									</TagsWrapper>
-								)}
-							</ImageWrapper>
-						)}
-						<Text size={size}>
-							<Meta>
-								{editorial && <Editorial {...editorial} />}
-								{date && <PostDate>{format.postDate(date)}</PostDate>}
-							</Meta>
-							{title && <Title>{title}</Title>}
-							{authors && authors.map(author => (
-								<Author key={author.url} size='small' {...author} dark={dark} />
+		<Wrapper
+			dark={dark}
+			alt={alt}
+			reverse={reverse}
+			size={size}
+			compact={compact}
+		>
+			{cover && (
+				<ImageWrapper size={size} compact={compact}>
+					<Image image={cover} dark={dark} />
+					{tags && (
+						<TagsWrapper>
+							{tags.map((tag, index) => (
+								<Tag key={tag} tag={tag} index={index} />
 							))}
-						</Text>
-					</PostContent>
-				</Inset>
-			</Padding>
+						</TagsWrapper>
+					)}
+				</ImageWrapper>
+			)}
+			<Text size={size}>
+				<Meta>
+					{editorial && <Editorial {...editorial} />}
+					{date && <PostDate>{format.postDate(date)}</PostDate>}
+				</Meta>
+				{title && <Title>{title}</Title>}
+				{authors && authors.map(author => (
+					<Author key={author.url} size='small' {...author} dark={dark} />
+				))}
+			</Text>
 			<Anchor to={url} />
 		</Wrapper>
 	</StyledCardCell>

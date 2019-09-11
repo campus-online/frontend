@@ -20,6 +20,7 @@ const Wrapper = styled(Link)`
 	padding: 0.5rem 0.75rem;
 	position: relative;
 	z-index: 2;
+	transition: opacity 0.3s, transform 0.5s;
 	${above.md`
 		opacity: 0;
 		transform: translateX(2rem);
@@ -27,8 +28,6 @@ const Wrapper = styled(Link)`
 	`} .PostCard:hover &, .PostCard:focus & {
 		opacity: 1;
 		transform: none;
-		transition: opacity 0.3s ${p => `${p.index * 0.06}s`},
-			transform 0.5s ${p => `${p.index * 0.06}s`};
 	}
 	&:hover {
 		background: white;
@@ -37,7 +36,10 @@ const Wrapper = styled(Link)`
 `
 
 const Tag = ({tag, index}) => (
-	<Wrapper index={index} to={`/tags/${kebabCase(tag)}/`}>
+	<Wrapper
+		to={`/tags/${kebabCase(tag)}/`}
+		style={{transitionDelay: `${index * 0.06}s`}}
+	>
 		{tag}
 	</Wrapper>
 )
