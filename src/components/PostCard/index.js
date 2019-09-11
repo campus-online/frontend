@@ -43,8 +43,22 @@ export const Wrapper = styled.article.attrs({className: 'PostCard'})`
 	${above.xg`
 		flex-direction: ${p => (p.reverse ? 'row' : 'row-reverse')};
 	`};
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		box-shadow: 0 1.5rem 4rem -0.75rem rgba(0,0,0,0.3);
+		opacity: 0;
+		transition: all .6s cubic-bezier(0.165, 0.84, 0.44, 1);
+	}
 	&:hover, &:focus, &:active{
 		z-index: 1;
+		&:before {
+			opacity: 1;
+		}
 	}
 `
 
