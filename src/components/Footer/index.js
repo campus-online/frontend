@@ -76,6 +76,23 @@ const LinkNav = styled.nav`
 	`};
 `
 
+const NetlifyLink = styled(Link)`
+	display: block;
+	font-size: 0.75rem;
+	line-height: 1rem;
+	margin-top: 2rem;
+	text-decoration: none;
+	color: currentColor;
+	opacity: 0.3;
+	font-weight: 500;
+	${above.md`
+		margin-top: 0.5rem;
+	`}
+	&:hover, &:focus, &:active {
+		opacity: 1;
+	}
+`
+
 const LinkSection = ({title, children, style, className}) => (
 	<LinkNav style={style} className={className}>
 		<SectionTitle>{title}</SectionTitle>
@@ -158,6 +175,9 @@ const Footer = () => (
 					</LinkSection>
 				</Right>
 			</Row>
+			<NetlifyLink to="https://netlify.com">
+				This site is powered by Netlify
+			</NetlifyLink>
 		</Container>
 	</Wrapper>
 )
